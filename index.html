@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="flex justify-center">
+    <div class="max-w-md w-full min-h-[600px] bg-gray-100">
+        <div class="bg-blue-600 text-white p-5 font-semibold">
+            Flight Booking
+        </div>
+        <div class="px-5 mt-5">
+            <div class="mb-2">
+              Please Complete your Booking
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button id="AlertBtn" 
+                class="bg-blue-600 text-white px-3 py-1 rounded-md hover:opacity-80">
+                Alert
+              </button>
+              <button id="AuthBtn" 
+                class="bg-blue-600 text-white px-3 py-1 rounded-md hover:opacity-80">
+                AuthCode
+              </button>
+              <button id="PayBtn" 
+                class="bg-blue-600 text-white px-3 py-1 rounded-md hover:opacity-80">
+                Payment
+              </button>
+            </div>
+
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.marmot-cloud.com/npm/hylid-bridge/2.10.0/index.js"></script>
+  <script src="/myapp.js"></script>
+</body>
+</html>
