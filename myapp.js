@@ -23,7 +23,7 @@ function alertCheck() {
 
 function authCheck() {
   my.getAuthCode({
-    scopes: ['auth_base'],
+    scopes: ['MINI_PROGRAM','CASHIER','PUBLIC_ID'],
     success: (res) => {
       my.alert({
         content: res.authCode,
