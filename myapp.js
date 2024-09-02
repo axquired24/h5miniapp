@@ -28,6 +28,9 @@ function authCheck() {
       my.alert({
         content: res.authCode,
       });
+      my.alert({
+        content: JSON.stringify(res),
+      });
     },
     fail: (res) => {
         my.alert({
