@@ -21,13 +21,10 @@ function alertCheck() {
   });
 }
 
-function authCheck() {
+function authCheckWithScope(scopes=[]) {
   my.getAuthCode({
-    scopes: ['MINI_PROGRAM','CASHIER','PUBLIC_ID'],
+    scopes,
     success: (res) => {
-      my.alert({
-        content: res.authCode,
-      });
       my.alert({
         content: JSON.stringify(res),
       });
@@ -39,6 +36,21 @@ function authCheck() {
         console.log(res.authErrorScopes)
     },
   });
+}
+
+function authCheck() {
+  const scopes = ['MINI_PROGRAM','CASHIER','PUBLIC_ID']
+  authCheckWithScope(scopes)
+}
+
+function authCheckScopeUser() {
+  const scopes = ['auth_user']
+  authCheckWithScope(scopes)
+}
+
+function authCheckScopeBase() {
+  const scopes = ['auth_base']
+  authCheckWithScope(scopes)
 }
 
 function tradePay() {
@@ -61,6 +73,8 @@ function tradePay() {
   const listenerList = [
     ['AlertBtn', alertCheck],
     ['AuthBtn', authCheck],
+    ['AuthBtnScopeUser', authCheckScopeUser],
+    ['AuthBtnScopeBase', authCheckScopeBase],
     ['PayBtn', tradePay]
   ]
 
