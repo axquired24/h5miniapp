@@ -21,6 +21,34 @@ function alertCheck() {
   });
 }
 
+function setNavigationBarWhite() {
+  my.setNavigationBar({
+    title: 'Flight White',
+    backgroundColor: '#FFFFFF',
+    success() { 
+    },
+    fail() {
+      my.alert({
+        content: 'Failed to set Navbar',
+      });
+    },
+  });
+}
+
+function setNavigationBarBlue() {
+  my.setNavigationBar({
+    title: 'Flight Blue',
+    backgroundColor: '#1C85C7',
+    success() { 
+    },
+    fail() {
+      my.alert({
+        content: 'Failed to set Navbar',
+      });
+    },
+  });
+}
+
 function authCheckWithScope(scopes=[]) {
   my.getAuthCode({
     scopes,
@@ -72,7 +100,8 @@ function tradePay() {
 (function() {
   const listenerList = [
     ['AlertBtn', alertCheck],
-    ['AuthBtn', authCheck],
+    ['NavbarWhiteBtn', setNavigationBarWhite],
+    ['NavbarBlueBtn', setNavigationBarBlue],
     ['AuthBtnScopeUser', authCheckScopeUser],
     ['AuthBtnScopeBase', authCheckScopeBase],
     ['PayBtn', tradePay]
