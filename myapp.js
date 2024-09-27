@@ -81,6 +81,11 @@ function authCheckScopeBase() {
   authCheckWithScope(scopes)
 }
 
+function msgToParent() {
+  const objMsg = {isBookingSuccess: false, amount: 5000, title: "Flight"}
+  window.parent.postMessage(objMsg, "*")
+}
+
 function tradePay() {
   my.tradePay({
     tradeNO: '201711152100110410533667792', // get the tradeNo from the server first
