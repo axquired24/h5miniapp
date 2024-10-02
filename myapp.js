@@ -86,6 +86,34 @@ function msgToParent() {
   window.parent.postMessage(objMsg, "*")
 }
 
+function authLocalStorageTest() {
+  const storageKey = "H5MINIAPP_TOKEN"
+
+  const update = () => {
+    const strValue = prompt("Set auth value", "111111a")
+    const val = JSON.stringify({auth: strValue, isExpired: false})
+    localStorage.setItem(storageKey, val)
+    alert("value set: " + val)
+  }
+
+  const get = () => {
+    try {
+      const getVal = localStorage.getItem(storageKey) || "{}"
+      const parsedVal = JSON.parse(getVal)
+      const formatVal = Object.entries(parsedVal).map(item => `${item[0]}= ${item[1]}`).join(", ")
+      alert(formatVal)
+    } catch (e) {
+      console.error(e)
+      alert("Failed to get item")
+    }
+  }
+
+  return {
+    update, 
+    get
+  }
+}
+
 function tradePay() {
   my.tradePay({
     tradeNO: '201711152100110410533667792', // get the tradeNo from the server first
